@@ -4,9 +4,14 @@ export default function EventCard({ ev }) {
 	const time = start.toLocaleTimeString(undefined, {
 		hour: "2-digit",
 		minute: "2-digit",
+        hour12: false,
 	});
 	const endTime = end
-		? end.toLocaleTimeString(undefined, { hour: "2-digit", minute: "2-digit" })
+		? end.toLocaleTimeString(undefined, {
+				hour: "2-digit",
+				minute: "2-digit",
+				hour12: false,
+			})
 		: null;
 
 	return (

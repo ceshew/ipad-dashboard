@@ -10,7 +10,14 @@ export default function IssuesList() {
 			try {
 				const res = await fetch("/.netlify/functions/linear");
 				const data = await res.json();
-				setItems(Array.isArray(data) ? data : []);
+				const raw = Array.isArray(data) ? data : [];
+
+				// drop issues that are done (by state or completion flag)
+				const openOnly = raw.filter(
+					(i) => !(i.state?.name?.toLowerCase() === "done" || i.completedAt),
+				);
+
+				setItems(openOnly);
 			} catch (e) {
 				setErr(String(e));
 			}

@@ -1,4 +1,5 @@
 import CalendarList from './components/Calendar/CalendarList';
+import ClockCard from './components/ClockCard';
 import HeaderClock from './components/HeaderClock';
 import IssuesList from './components/Issues/IssuesList';
 import ThemeToggle from './components/ThemeToggle';
@@ -17,6 +18,7 @@ export default function App() {
 
       <main className="container">
         <section className="col">
+          <ClockCard />
           <IssuesList />
         </section>
 
