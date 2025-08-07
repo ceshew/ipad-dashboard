@@ -38,13 +38,13 @@ export default function IssuesList() {
 	if (!items.length) return <div className="small">No issues.</div>;
 
 	return (
-		<>
+		<div className="sectionCard">
 			<h3 className="sectionTitle">Issues</h3>
 			<div className="list">
 				{items.map((iss) => (
 					<IssueCard key={iss.id} issue={iss} />
 				))}
 			</div>
-		</>
+		</div>
 	);
 }

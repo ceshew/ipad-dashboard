@@ -1,133 +1,178 @@
 :root {
-  --bg: #ffffff;
-  --fg: #0a0a0a;
-  --muted: #6b7280;
-  --card: #f3f4f6;
-  --accent: #2563eb;
-  --good: #16a34a;
+	--bg: #ffffff;
+	--fg: #0a0a0a;
+	--muted: #6b7280;
+	--card: #f3f4f6;
+	--accent: #2563eb;
+	--good: #16a34a;
 }
 .dark {
-  --bg: #0b0f14;
-  --fg: #e5e7eb;
-  --muted: #94a3b8;
-  --card: #111827;
-  --accent: #60a5fa;
-  --good: #22c55e;
+	--bg: #0b0f14;
+	--fg: #e5e7eb;
+	--muted: #94a3b8;
+	--card: #111827;
+	--accent: #60a5fa;
+	--good: #22c55e;
 }
 
-* { box-sizing: border-box; }
-html, body, #root { height: 100%; }
-body { margin: 0; background: var(--bg); color: var(--fg); font-family: -apple-system, system-ui, Segoe UI, Roboto, sans-serif; }
+* {
+	box-sizing: border-box;
+}
+html,
+body,
+#root {
+	height: 100%;
+}
+body {
+	margin: 0;
+	background: var(--bg);
+	color: var(--fg);
+	font-family:
+		-apple-system,
+		system-ui,
+		Segoe UI,
+		Roboto,
+		sans-serif;
+}
 
 .container {
-  /* flex fallback (no gap support on iOS 10) */
-  display: flex;
-  flex-wrap: wrap;
-  /* negative margin pairs with .col margin to simulate "gap" */
-  /* margin: -8px; */
-  padding: 16px;
-  height: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	padding: 16px;
+	height: 100%;
 }
 .col {
-  flex: 1 1 0;
-  min-width: 320px;          /* so it wraps on narrow screens */
-  margin: 8px;               /* fake the gap */
-  overflow: auto;
-  border-radius: 16px;
-  background: var(--card, #f3f4f6);
-  padding: 12px;
-  margin-left: 8px;
-  margin-right: 8px;
+	flex: 1 1 0;
+	min-width: 320px; /* so it wraps on narrow screens */
+	overflow: visible;
+	border-radius: 0;
+}
+.sectionCard {
+	border-radius: 16px;
+	background: var(--card, #f3f4f6);
+	padding: 12px;
+	margin-bottom: 12px;
 }
 .sectionTitle {
-  margin: 0 0 8px 0; font-size: 18px;
+	margin: 0 0 8px 0;
+	font-size: 18px;
 }
-.list { display: grid; gap: 8px; }
+.list {
+	display: grid;
+	gap: 8px;
+}
 .card {
-  border-radius: 12px;
-  padding: 10px 12px;
-  background: var(--bg, #fff);
-  border: 1px solid rgba(0,0,0,.06);
-  margin-left: 8px;
-  margin-right: 8px;
-  
+	border-radius: 12px;
+	padding: 10px 12px;
+	background: var(--bg, #fff);
+	border: 1px solid rgba(0, 0, 0, 0.06);
 }
-.badge { font-size: 12px; color: var(--muted); }
+.badge {
+	font-size: 12px;
+	color: var(--muted);
+}
 .header {
-  display:flex; align-items:center; justify-content:space-between;
-  padding: 12px 16px; border-bottom: 1px solid rgba(0,0,0,.08);
-  background: var(--bg, #fff);
-  color: var(--fg, #0a0a0a);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 12px 16px;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+	background: var(--bg, #fff);
+	color: var(--fg, #0a0a0a);
 }
-.clock { font-weight: 600; font-size: 20px; }
-.row { display:flex; align-items:center; justify-content:space-between; gap:8px; }
-.small { font-size: 12px; color: var(--muted); }
-.title { font-weight: 600; }
-.state { font-size:12px; padding:2px 6px; border-radius:999px; background: rgba(37,99,235,.15); color: var(--accent); }
+.clock {
+	font-weight: 600;
+	font-size: 20px;
+}
+.row {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 8px;
+}
+.small {
+	font-size: 12px;
+	color: var(--muted);
+}
+.title {
+	font-weight: 600;
+}
+.state {
+	font-size: 12px;
+	padding: 2px 6px;
+	border-radius: 999px;
+	background: rgba(37, 99, 235, 0.15);
+	color: var(--accent);
+}
 @media (max-width: 900px) {
-  .container { grid-template-columns: 1fr; }
+	.container {
+		grid-template-columns: 1fr;
+	}
 }
 
 /* --- Progressive enhancement: use real CSS Grid when supported --- */
 @supports (display: grid) {
-  .container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin: 0; /* reset the flex hack */
-  }
-  /* .col { margin: 0; } */
+	.container {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 16px;
+		margin: 0; /* reset the flex hack */
+	}
+	/* .col { margin: 0; } */
 }
 
 @media (max-width: 900px) {
-  @supports (display: grid) {
-    .container { grid-template-columns: 1fr; }
-  }
-  /* flex fallback already wraps */
+	@supports (display: grid) {
+		.container {
+			grid-template-columns: 1fr;
+		}
+	}
+	/* flex fallback already wraps */
 }
 
 /* CLOCK CARD */
 .clockCard {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 16px 16px 14px 16px;
-  margin-bottom: 8px; /* keeps alignment with first calendar card */
-  background: var(--card, #f3f4f6);
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding: 16px;
+	border-radius: 16px;
+	margin-bottom: 12px;
+	background: var(--card, #f3f4f6);
 }
 
 .clockTime {
-  font-size: 64px;
-  line-height: 1.05;
-  font-weight: 800;
+	font-size: 64px;
+	line-height: 1.05;
+	font-weight: 800;
 }
 
 .clockDate {
-  margin-top: 6px;
-  font-size: 15px;
-  color: var(--muted, #6b7280);
+	margin-top: 6px;
+	font-size: 15px;
+	color: var(--muted, #6b7280);
 }
 
 /* TOGGLE THEME BUTTON */
 .toggleTopRight {
-  position: absolute;
-  right: 12px;
-  top: 12px;
+	position: absolute;
+	right: 12px;
+	top: 12px;
 }
 .toggle {
-  appearance: none;
-  -webkit-appearance: none;
-  background: var(--card, #111827);
-  color: var(--fg, #e5e7eb);
-  border: 1px solid rgba(255,255,255,.25);
-  border-radius: 8px;
-  padding: 6px 10px;
-  cursor: pointer;
-  font: inherit;
+	appearance: none;
+	-webkit-appearance: none;
+	background: var(--card, #111827);
+	color: var(--fg, #e5e7eb);
+	border: 1px solid rgba(255, 255, 255, 0.25);
+	border-radius: 8px;
+	padding: 6px 10px;
+	cursor: pointer;
+	font: inherit;
 }
 .dark .toggle {
-  background: var(--card, #111827);
-  color: var(--fg, #e5e7eb);
-  border-color: rgba(255,255,255,.25);
+	background: var(--card, #111827);
+	color: var(--fg, #e5e7eb);
+	border-color: rgba(255, 255, 255, 0.25);
 }

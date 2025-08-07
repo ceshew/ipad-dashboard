@@ -30,13 +30,13 @@ export default function CalendarList() {
 	if (!events.length) return <div className="small">No upcoming events.</div>;
 
 	return (
-		<>
+		<div className="sectionCard">
 			<h3 className="sectionTitle">Upcoming</h3>
 			<div className="list">
 				{events.map((ev) => (
 					<EventCard key={ev.id} ev={ev} />
 				))}
 			</div>
-		</>
+		</div>
 	);
 }

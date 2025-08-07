@@ -7,7 +7,7 @@ export default function App() {
 	return (
 		<div style={{ height: "100%", display: "flex", flexDirection: "column" }}>
 			<main className="container">
-				<section className="col">
+				<section className="col" style={{ marginRight: "16px" }}>
 					<ClockCard />
 					<IssuesList />
 				</section>
