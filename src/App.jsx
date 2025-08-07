@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { AutoRefreshCard } from "./components/AutoRefreshCard";
 
 function App() {
   const [linear, setLinear] = useState([]);
@@ -10,6 +11,11 @@ function App() {
   }, []);
 
   return (
+    <>
+    <div style={{ padding: "2rem", fontFamily: "sans-serif" }}>
+			<h1>📊 iPad Dashboard</h1>
+			<AutoRefreshCard />
+		</div>
     <div style={{ fontFamily: 'sans-serif', padding: '1rem' }}>
       <h1>Dashboard</h1>
       <section>
@@ -21,6 +27,7 @@ function App() {
         <ul>{calendar.map(e => <li key={e.id}>{e.time}: {e.title}</li>)}</ul>
       </section>
     </div>
+    </>
   );
 }
 
