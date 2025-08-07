@@ -51,9 +51,26 @@ body { margin: 0; background: var(--bg); color: var(--fg); font-family: -apple-s
 .header {
   display:flex; align-items:center; justify-content:space-between;
   padding: 12px 16px; border-bottom: 1px solid rgba(0,0,0,.08);
+  background: var(--bg, #fff);
+  color: var(--fg, #0a0a0a);
 }
 .clock { font-weight: 600; font-size: 20px; }
-.toggle { border:1px solid rgba(0,0,0,.1); border-radius:8px; padding:6px 10px; cursor:pointer; }
+.toggle {
+  appearance: none;           /* kill iOS default */
+  -webkit-appearance: none;
+  background: var(--card, #111827);
+  color: var(--fg, #e5e7eb);
+  border: 1px solid rgba(255,255,255,.2); /* visible on dark */
+  border-radius: 8px;
+  padding: 6px 10px;
+  cursor: pointer;
+  font: inherit;
+}
+.dark .toggle {
+  background: var(--card, #111827);
+  color: var(--fg, #e5e7eb);
+  border-color: rgba(255,255,255,.25);
+}
 .row { display:flex; align-items:center; justify-content:space-between; gap:8px; }
 .small { font-size: 12px; color: var(--muted); }
 .title { font-weight: 600; }
