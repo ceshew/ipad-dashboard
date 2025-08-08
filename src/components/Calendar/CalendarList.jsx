@@ -16,7 +16,7 @@ export default function CalendarList() {
 			}
 		}
 		load();
-		const id = setInterval(load, 5 * 60 * 1000);
+		const id = setInterval(load, 30 * 60 * 1000);
 		return () => clearInterval(id);
 	}, []);
 
