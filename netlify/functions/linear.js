@@ -7,7 +7,7 @@ export async function handler() {
 
     const query = `
       query {
-        issues(first: 10, orderBy: updatedAt) {
+        issues {
           nodes {
             id
             identifier
@@ -15,7 +15,8 @@ export async function handler() {
             state { name }
             assignee { name }
             url
-            updatedAt
+            dueDate
+            team { name }
           }
         }
       }

@@ -71,22 +71,10 @@ body {
 	font-size: 12px;
 	color: var(--muted);
 }
-.header {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	padding: 12px 16px;
-	border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-	background: var(--bg, #fff);
-	color: var(--fg, #0a0a0a);
-}
-.clock {
-	font-weight: 600;
-	font-size: 20px;
-}
+
 .row {
 	display: flex;
-	align-items: center;
+	align-items: flex-start;
 	justify-content: space-between;
 	gap: 8px;
 }
@@ -97,13 +85,24 @@ body {
 .title {
 	font-weight: 600;
 }
-.state {
+.tag {
 	font-size: 12px;
+  font-weight: 400;
 	padding: 2px 6px;
 	border-radius: 999px;
 	background: rgba(37, 99, 235, 0.15);
 	color: var(--accent);
 }
+
+.personal {
+  background: #fff2c5;
+  color: #df8702;
+}
+.master {
+  background: #fdddf3;
+  color: #fc2dc1;
+}
+
 @media (max-width: 900px) {
 	.container {
 		grid-template-columns: 1fr;
@@ -175,4 +174,16 @@ body {
 	background: var(--card, #111827);
 	color: var(--fg, #e5e7eb);
 	border-color: rgba(255, 255, 255, 0.25);
+}
+
+/* LABELS */
+.label {
+  display: flex;
+  align-items: center;
+  font-family: sans-serif;
+}
+
+.label-text {
+  font-size: 12px;
+  margin-left: 5px;
 }

@@ -10,6 +10,7 @@ export default function IssuesList() {
 			try {
 				const res = await fetch("/.netlify/functions/linear");
 				const data = await res.json();
+				console.log("Linear data:", data);
 				const raw = Array.isArray(data) ? data : [];
 
 				// drop issues that are done (by state or completion flag)
