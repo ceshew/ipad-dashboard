@@ -66,6 +66,7 @@ body {
 	padding: 10px 12px;
 	background: var(--bg, #fff);
 	border: 1px solid rgba(0, 0, 0, 0.06);
+  margin-bottom: 5px;
 }
 .badge {
 	font-size: 12px;
